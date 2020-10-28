@@ -13,7 +13,7 @@ makeCacheMatrix <- function(x = matrix()) {
    # initiate `set()` as a function to reassign x using <<- and R scoping rules
    set <- function(y) {
       x <<- y
-      inv <- NULL
+      inv <<- NULL
    }
    
    # initiate `get()` as a function to retrieve the current value of x
@@ -43,9 +43,10 @@ cacheSolve <- function(x, ...) {
       return(inv)
    }
    
-   mat <- x$get
+   mat <- x$get()
    inv <- solve(mat)
    x$setinv(inv)
    
    return(inv)
 }
+
